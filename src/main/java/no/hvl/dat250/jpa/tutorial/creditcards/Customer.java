@@ -17,8 +17,6 @@ public class Customer {
     @Getter
     private String name;
 
-
-
     @Getter
     @ManyToMany
     private Collection<CreditCard> creditCards = new ArrayList<>();
