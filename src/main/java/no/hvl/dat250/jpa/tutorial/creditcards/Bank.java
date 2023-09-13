@@ -2,15 +2,14 @@ package no.hvl.dat250.jpa.tutorial.creditcards;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Getter
-@Setter
-@NoArgsConstructor
 @Entity
+@Setter
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +17,8 @@ public class Bank {
 
     private String name;
 
-    @OneToMany
-    private Collection<CreditCard> ownedCards;
-
-
-    public Collection<CreditCard> getOwnedCards() {
-        return ownedCards;
-    }
+    @OneToMany(mappedBy = "owningBank")
+    private Collection<CreditCard> ownedCards = new ArrayList<>();
 
 
 }

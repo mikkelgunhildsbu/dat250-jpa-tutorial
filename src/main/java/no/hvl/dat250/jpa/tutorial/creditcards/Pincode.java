@@ -2,28 +2,33 @@ package no.hvl.dat250.jpa.tutorial.creditcards;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.util.Collection;
-
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
+@Getter
 public class Pincode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String code;
 
+    private String code;
     private Integer count;
 
-    @OneToMany
-    private Collection<CreditCard> pinCode;
-
-    public  Collection<CreditCard> getCode() {
-        return pinCode;
+    public Long getId() {
+        return id;
     }
 
+    public String getCode() {
+        return code;
+    }
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 }
